@@ -13,7 +13,7 @@ const UpdateBucketCtrl = require("../controllers/Bucket/UpdateBucketCtrl");
 BucketRoute.route("/create").post(CreateBucketCtrl);
 // read route
 BucketRoute.route("/fetch").get(FetchAllBucksCtrl);
-BucketRoute.route("/fetch-single").get(FetchSingleBuckCtrl);
+BucketRoute.route("/:id").get(FetchSingleBuckCtrl);
 // update route
 BucketRoute.route("/update").put(UpdateBucketCtrl);
 // delete route

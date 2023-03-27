@@ -13,7 +13,7 @@ const CardRoute = require("express").Router();
 CardRoute.route("/create").post(CreateCardCtrl);
 // Read
 CardRoute.route("/fetch").get(FetchAllCardsCtrl);
-CardRoute.route("/fetch-single").get(FetchSingleCardCtrl);
+CardRoute.route("/:id").get(FetchSingleCardCtrl);
 // Update
 CardRoute.route("/update").put(UpdateCardCtrl);
 // Delete

@@ -3,7 +3,7 @@ const Card = require("../../models/CardModel/CardModel");
 const validId = require("../../utils/validId");
 
 const FetchSingleCardCtrl = expressAsyncHandler(async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   validId(id);
 
   const checkCard = await Card.findById(id);

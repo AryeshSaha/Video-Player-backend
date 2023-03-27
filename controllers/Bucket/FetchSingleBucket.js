@@ -3,7 +3,7 @@ const Bucket = require("../../models/BucketModel/BucketModel");
 const validId = require("../../utils/validId");
 
 const FetchSingleBuckCtrl = expressAsyncHandler(async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
 
   validId(id);
 
