@@ -1,0 +1,25 @@
+{
+  "name": "video-player",
+  "version": "1.0.0",
+  "description": "Card with a name and video link which can be modified and put into various buckets as per the user's choice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Video",
+    "Player"
+  ],
+  "author": "Aryesh",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^7.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
