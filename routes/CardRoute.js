@@ -1,6 +1,5 @@
 const CreateCardCtrl = require("../controllers/Card/CreateCardCtrl");
 const DeleteCardCtrl = require("../controllers/Card/DeleteCardCtrl");
-const FetchAllCardsCtrl = require("../controllers/Card/FetchAllCards");
 const FetchSingleCardCtrl = require("../controllers/Card/FetchSingleCard");
 const MoveCardCtrl = require("../controllers/Card/MoveCardCtrl");
 const UpdateCardCtrl = require("../controllers/Card/UpdateCardCtrl");
@@ -12,7 +11,6 @@ const CardRoute = require("express").Router();
 // Create
 CardRoute.route("/create").post(CreateCardCtrl);
 // Read
-CardRoute.route("/fetch").get(FetchAllCardsCtrl);
 CardRoute.route("/:id").get(FetchSingleCardCtrl);
 // Update
 CardRoute.route("/update").put(UpdateCardCtrl);
