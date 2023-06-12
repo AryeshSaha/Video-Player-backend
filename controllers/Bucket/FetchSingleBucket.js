@@ -12,7 +12,7 @@ const FetchSingleBuckCtrl = expressAsyncHandler(async (req, res) => {
   if (!checkBucket) throw new Error("Bucket doesn't exist");
 
   try {
-    const bucket = await Bucket.findById(id).populate("Card");
+    const bucket = await Bucket.findById(id).populate("Cards");
     res.json({ message: "Fetching successful", bucket });
   } catch (error) {
     res.json(error);

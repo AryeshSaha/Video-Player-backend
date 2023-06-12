@@ -4,24 +4,27 @@ const Card = require("../../models/CardModel/CardModel");
 const validId = require("../../utils/validId");
 
 const DeleteCardCtrl = expressAsyncHandler(async (req, res) => {
+  const deletedCards = [];
   const { buckId, ids } = req.body;
 
   const checkBucket = await Bucket.findById(buckId);
 
   if (!checkBucket) throw new Error("Bucket doesn't exist");
 
-  ids.forEach(async (id) => {
-    console.log("id: ", id);
+  for (const id of ids) {
     validId(id);
     const checkCard = await Card.findById(id);
 
     if (!checkCard) throw new Error("Card doesn't exist");
-  });
-
+  };
+  
   try {
-    ids.forEach(async (id) => {
-      await Card.findByIdAndRemove(id);
-    });
+
+    for (const id of ids) {
+      const deletedCard = await Card.findByIdAndRemove(id);
+      deletedCards.push(deletedCard);
+    }
+    
     // update bucket card count
     await Bucket.findByIdAndUpdate(
       buckId,
@@ -36,8 +39,8 @@ const DeleteCardCtrl = expressAsyncHandler(async (req, res) => {
     );
     res.json({
       message: `deletion successful`,
+      deletedCards,
     });
-    console.log("foreach testing");
   } catch (error) {
     res.json(error);
   }

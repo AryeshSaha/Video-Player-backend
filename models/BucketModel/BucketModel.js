@@ -25,7 +25,7 @@ const BucketSchema = mongoose.Schema(
 );
 
 // Populate Cards
-BucketSchema.virtual("Card", {
+BucketSchema.virtual("Cards", {
   ref: "Card",
   foreignField: "bucket",
   localField: "_id",

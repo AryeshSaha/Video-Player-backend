@@ -4,7 +4,7 @@ const Card = require("../../models/CardModel/CardModel");
 const validId = require("../../utils/validId");
 
 const CreateCardCtrl = expressAsyncHandler(async (req, res) => {
-  const buckId = req.body.id;
+  const {buckId} = req.body;
 
   validId(buckId);
 
