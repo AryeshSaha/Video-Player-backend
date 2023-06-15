@@ -1,6 +1,7 @@
 const expressAsyncHandler = require("express-async-handler");
 const Bucket = require("../../models/BucketModel/BucketModel");
 const validId = require("../../utils/validId");
+const Card = require("../../models/CardModel/CardModel");
 
 const DeleteBucketCtrl = expressAsyncHandler(async (req, res) => {
   const { id } = req.body;
@@ -13,6 +14,7 @@ const DeleteBucketCtrl = expressAsyncHandler(async (req, res) => {
 
   try {
     const bucket = await Bucket.findByIdAndRemove(id);
+    await Card.deleteMany({bucket: id})
     res.json({ message: `${bucket.name} is deleted successfully`, bucket });
   } catch (error) {
     res.json(error);
